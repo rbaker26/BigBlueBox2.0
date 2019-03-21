@@ -1,4 +1,4 @@
-﻿<Window x:Class="BigBlueBox_2._0.MainWindow"
+<Window x:Class="BigBlueBox_2._0.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,11 +12,11 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        WindowState="Maximized" Height="675" Width="1253.158"
+        WindowState="Maximized" Height="911" Width="1519.158"
         >
 
     <Grid VerticalAlignment="Top" Margin="16">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -26,7 +26,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -36,19 +36,20 @@
 
         <Label Grid.Row="0" Grid.ColumnSpan="3"
                HorizontalAlignment="Center" 
-               FontSize="48" FontFamily="Roboto" >
+               FontSize="48" FontFamily="Roboto" 
+               Margin="0 0 0 75">
             Big Blue Box IMS
         </Label>
 
         <!--<Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">>
             Big Blue Box IMS
         </Button>-->
-       
+
 
         <!--********************************************************************************-->
         <!--Menu Buttons-->
         <!--********************************************************************************-->
-         <Button Grid.Row="1" Grid.Column="0" Width="100" Height="100" Margin="10" >
+        <Button Grid.Row="1" Grid.Column="0" Width="100" Height="100" Margin="10" >
             <StackPanel Orientation="Vertical">
                 <Image Source="rec\outline_home_black_18dp.png"  Width="40" Height="40"/>
                 <TextBlock Text="Home" VerticalAlignment="Center" />
@@ -93,16 +94,129 @@
         </Button>
         <!--********************************************************************************-->
 
-
+        
+        
         <!--********************************************************************************-->
         <!--Main Page Info-->
         <!--********************************************************************************-->
+
+
+        <!--************************************************-->
+        <!--Items Needing Attention - Sub Grid-->
+        <!--************************************************-->
+        <Grid Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1000"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center" 
+                       TextAlignment="Center"
+                       FontSize="24">
+                Items Needing Attention
+            </TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                0
+            </TextBlock>
+            <Button   Grid.Row="0" Grid.Column="1"   
+                      Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                      FontSize="18">
+                0
+            </Button>
+            
+
+        </Grid>
+        <!--************************************************-->
+
+        
+        
+        <!--************************************************-->
+        <!--Gear Needing Attention - Sub Grid-->
+        <!--************************************************-->
+        <Grid Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1000"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center" 
+                       TextAlignment="Center"
+                       FontSize="24">
+                Gear Needing Attention
+            </TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       TextAlignment="Center">
+                0
+            </TextBlock>
+            <Button   Grid.Row="0" Grid.Column="1"   
+                      Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                      FontSize="18">0</Button>
+
+
+        </Grid>
+        <!--************************************************-->
+
+
+
+        <!--************************************************-->
+        <!--Analitics Needing Attention - Sub Grid-->
+        <!--************************************************-->
+        <Grid Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1000"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center" 
+                       TextAlignment="Center"
+                       FontSize="24">
+                Reports Needing Attention
+            </TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       TextAlignment="Center">
+                0
+            </TextBlock>
+            <Button   Grid.Row="0" Grid.Column="1"   
+                      Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                      FontSize="18">0</Button>
+
+
+        </Grid>
+        <!--************************************************-->
+
         <!--<Label Grid.Column="1" Grid.RowSpan="5" Background="Transparent">
             Big Blue Box IMS
-            --><!--<FlowDocument TextAlignment="Center">
+            -->
+        <!--<FlowDocument TextAlignment="Center">
                 <Paragraph  Foreground="Gray" FontSize="42" FontFamily="Roboto">Big Blue Box IMS</Paragraph>
                 <Paragraph FontStyle="Italic" TextAlignment="Left" FontSize="14" Foreground="Gray">Thanks to the RichTextBox control, this FlowDocument is completely editable!</Paragraph>
-            </FlowDocument>--><!--
+            </FlowDocument>-->
+        <!--
         </Label>-->
 
         <!--********************************************************************************-->
@@ -111,11 +225,11 @@
         <!--<Label Grid.Row="1" Grid.Column="0">Iventory </Label>
         <Label Grid.Row="2" Grid.Column="0">Gear </Label>
         <Label Grid.Row="3" Grid.Column="0">Settings </Label>-->
-        
-        
 
 
-        
+
+
+
 
     </Grid>
 </Window>
