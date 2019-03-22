@@ -25,8 +25,7 @@ namespace BigBlueBox_2._0
         public MainWindow()
         {
             InitializeComponent();
-            TestClass ts = new TestClass();
-            ts.Print();
+           
         }
 
 

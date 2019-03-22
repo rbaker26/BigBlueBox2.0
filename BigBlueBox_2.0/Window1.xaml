@@ -1,0 +1,91 @@
+﻿<Window x:Class="WpfTutorialSamples.Misc_controls.TabControlWithCustomHeadersSample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TabControlWithCustomHeadersSample" 
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        >
+    
+    <Grid>
+        <Grid>
+            <TabControl TabStripPlacement="Left" Margin="0,0,-186,-241">
+                <TabItem>
+                    <TabItem.Header>
+
+                        <Button Grid.Row="1" Grid.Column="0" Width="100" Height="100" Margin="10" >
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="rec\outline_home_black_18dp.png"  Width="40" Height="40"/>
+                                <TextBlock Text="Home" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </TabItem.Header>
+                    <Label Content="Content goes here..." />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Button Grid.Row="2" Grid.Column="0" Width="100" Height="100" Margin="10">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="rec\outline_shopping_cart_black_18dp.png"  Width="40" Height="40"/>
+                                <TextBlock Text="Inventory" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </TabItem.Header>
+                    <Label Content="Other stuff" />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Button Grid.Row="3" Grid.Column="0" Width="100" Height="100" Margin="10">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="rec\outline_code_black_18dp.png"  Width="40" Height="40"/>
+                                <!--Needs space before gear for weird formatting bug-->
+                                <TextBlock Text=" Gear" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Button Grid.Row="4" Grid.Column="0" Width="100" Height="100" Margin="10">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="rec\outline_poll_black_18dp.png"  Width="40" Height="40"/>
+                                <TextBlock Text="Analytics" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Button Grid.Row="5" Grid.Column="0" Width="100" Height="100" Margin="10">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="rec\outline_supervisor_account_black_18dp.png"  Width="40" Height="40"/>
+                                <TextBlock Text="Accounts" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Button Grid.Row="6" Grid.Column="0" Width="100" Height="100" Margin="10">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="rec\outline_settings_black_18dp.png"  Width="40" Height="40"/>
+                                <TextBlock Text="Settings" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>
+
+
+
+<!--
+
+
+
+
+-->
