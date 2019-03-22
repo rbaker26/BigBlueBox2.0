@@ -18,9 +18,7 @@ namespace BigBlueBox_2._0
         //*****************************************************************************************
         private SQLiteConnection m_dbConnection;
         private static readonly Lazy<SQL_Interface>
-            lazy =
-            new Lazy<SQL_Interface>
-                (() => new SQL_Interface());
+            lazy = new Lazy<SQL_Interface> (() => new SQL_Interface());
         //*****************************************************************************************
 
 
