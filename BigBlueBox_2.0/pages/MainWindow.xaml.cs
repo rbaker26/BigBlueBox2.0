@@ -1,3 +1,4 @@
+<<<<<<< HEAD:BigBlueBox_2.0/pages/MainWindow.xaml.cs
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,3 +76,4 @@ namespace BigBlueBox_2._0
 
 
 }
+

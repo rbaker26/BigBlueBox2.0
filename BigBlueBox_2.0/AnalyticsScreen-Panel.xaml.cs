@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BigBlueBox_2._0.pages
+namespace BigBlueBox_2._0
 {
     /// <summary>
-    /// Interaction logic for GearScreen_Panel.xaml
+    /// Interaction logic for AnalyticsScreen_Panel.xaml
     /// </summary>
-    public partial class GearScreen_Panel : Page
+    public partial class AnalyticsScreen_Panel : Page
     {
-        public GearScreen_Panel()
+        public AnalyticsScreen_Panel()
         {
             InitializeComponent();
         }
