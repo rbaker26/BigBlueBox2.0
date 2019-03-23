@@ -52,22 +52,27 @@ namespace BigBlueBox_2._0
         private void Gear_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Gear Clicked");
+            Widget_Frame.Source = new Uri("GearScreen-Panel.xaml", UriKind.Relative);
         }
 
 
         private void Analytics_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Analytics Clicked");
+            Widget_Frame.Source = new Uri("AnalyticsScreen-Panel.xaml", UriKind.Relative);
         }
 
         private void Accounts_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Accounts Clicked");
+            // Widget_Frame.Source = new Uri("AccountsScreen-Panel.xaml", UriKind.Relative);
+            //Later we need to make a login panel for ths page that routes to a sign in form with users
         }
 
         private void Settings_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Settings Clicked");
+            Widget_Frame.Source = new Uri("SettingsScreen-Panel.xaml", UriKind.Relative);
         }
         //*************************************************************************
 

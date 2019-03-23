@@ -79,16 +79,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AnalyticsScreen-Panel.xaml.cs">
+      <DependentUpon>AnalyticsScreen-Panel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs" />
+    <Compile Include="GearScreen-Panel.xaml.cs">
+      <DependentUpon>GearScreen-Panel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomeScreen-Panel.xaml.cs">
       <DependentUpon>HomeScreen-Panel.xaml</DependentUpon>
     </Compile>
     <Compile Include="ItemData.cs" />
+    <Compile Include="SettingsSreen-Panel.xaml.cs">
+      <DependentUpon>SettingsSreen-Panel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SQL_Interface.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="AnalyticsScreen-Panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GearScreen-Panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomeScreen-Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +122,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SettingsSreen-Panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
