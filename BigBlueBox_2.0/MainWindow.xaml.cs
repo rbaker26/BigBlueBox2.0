@@ -46,7 +46,6 @@ namespace BigBlueBox_2._0
         {
             Console.Out.WriteLine("Inventory Clicked");
             Widget_Frame.Source = new Uri("InventoryScreen-Panel.xaml", UriKind.Relative);
-
         }
 
         private void Gear_Button_Click(object sender, RoutedEventArgs e)
