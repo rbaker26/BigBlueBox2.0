@@ -46,7 +46,15 @@ namespace BigBlueBox_2._0
         //*****************************************************************************************
         ~SQL_Interface()
         {
-            m_dbConnection.Close();
+            try
+            {
+                m_dbConnection.Close();
+            }
+            catch(Exception e)
+            {
+                Console.Out.WriteLine(e.Message);
+            }
+            
         }
         //*****************************************************************************************
 
