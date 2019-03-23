@@ -25,11 +25,54 @@ namespace BigBlueBox_2._0
         public MainWindow()
         {
             InitializeComponent();
-           
+            Widget_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
+
+
         }
+
+
+
+        //*************************************************************************
+        // Menu Button Click Actions
+        //*************************************************************************
+        private void Home_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Home Clicked");
+            Widget_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
+
+        }
+
+        private void Inventory_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Inventory Clicked");
+            Widget_Frame.Source = new Uri("InventoryScreen-Panel.xaml", UriKind.Relative);
+
+        }
+
+        private void Gear_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Gear Clicked");
+        }
+
+
+        private void Analytics_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Analytics Clicked");
+        }
+
+        private void Accounts_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Accounts Clicked");
+        }
+
+        private void Settings_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Settings Clicked");
+        }
+        //*************************************************************************
 
 
     }
 
-    
+
 }
