@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BigBlueBox_2._0.pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AnalyticsScreen_Panel">
+      Title="AnalyticsScreen_Panel" Height="Auto" Width="Auto">
 
     <Grid>
         <Label>Analytics</Label>

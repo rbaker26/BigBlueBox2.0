@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BigBlueBox_2._0"
         mc:Ignorable="d"
-        Title="InventoryScreen_Panel" Height="450" Width="800"
+        Title="InventoryScreen_Panel" Height="Auto" Width="Auto"
+        HorizontalAlignment="Center"
         
         
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
