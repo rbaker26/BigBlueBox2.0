@@ -23,5 +23,23 @@ namespace BigBlueBox_2._0
         {
             InitializeComponent();
         }
+
+        //*************************************************************************
+        // Inventory Button Click Actions
+        //*************************************************************************
+        private void Update_Inventory_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Update Inventory Clicked");
+            //Inventory_Form_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
+            //uncomment above when forms exist
+        }
+
+        private void New_Inventory_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("New Inventory Clicked");
+            //possibly write "are you sure this is new" y/n prompt to prevent overlap
+            //Inventory_Form_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
+            //uncomment above when forms exist
+        }
     }
 }
