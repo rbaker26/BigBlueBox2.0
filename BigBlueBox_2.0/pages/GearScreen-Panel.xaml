@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="GearScreen_Panel" Height="450" Width="800">
     <Grid>
-        
+        <Label>Gear</Label>
     </Grid>
 </Page>

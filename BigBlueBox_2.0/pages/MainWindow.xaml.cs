@@ -1,4 +1,3 @@
-<<<<<<< HEAD:BigBlueBox_2.0/pages/MainWindow.xaml.cs
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,7 @@ namespace BigBlueBox_2._0
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+       public MainWindow()
         {
             InitializeComponent();
             Widget_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
@@ -52,22 +51,26 @@ namespace BigBlueBox_2._0
         private void Gear_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Gear Clicked");
+            Widget_Frame.Source = new Uri("GearScreen-Panel.xaml", UriKind.Relative);
         }
 
 
         private void Analytics_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Analytics Clicked");
+            Widget_Frame.Source = new Uri("AnalyticsScreen-Panel.xaml", UriKind.Relative);
         }
 
         private void Accounts_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Accounts Clicked");
+            Widget_Frame.Source = new Uri("AccountsScreen-Panel.xaml", UriKind.Relative);
         }
 
         private void Settings_Button_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Settings Clicked");
+            Widget_Frame.Source = new Uri("SettingsScreen-Panel.xaml", UriKind.Relative);
         }
         //*************************************************************************
 
