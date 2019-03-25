@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BigBlueBox_2._0.forms
+namespace BigBlueBox_2._0.pages
 {
     /// <summary>
-    /// Interaction logic for UpdateInventory_Form.xaml
+    /// Interaction logic for InventoryDB_page.xaml
     /// </summary>
-    public partial class UpdateInventory_Form : Page
+    public partial class InventoryDB_page : Page
     {
-        public UpdateInventory_Form()
+        public InventoryDB_page()
         {
             InitializeComponent();
         }

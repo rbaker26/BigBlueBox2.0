@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace BigBlueBox_2._0.pages
 {
     /// <summary>
-    /// Interaction logic for NewInventory_Form.xaml
+    /// Interaction logic for InventoryUpdate_Form.xaml
     /// </summary>
-    public partial class NewInventory_Form : Window
+    public partial class InventoryUpdate_Form : Window
     {
-        public NewInventory_Form()
+        public InventoryUpdate_Form()
         {
             InitializeComponent();
         }

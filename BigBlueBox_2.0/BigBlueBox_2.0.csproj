@@ -79,11 +79,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="pages\NewInventory-Form.xaml.cs">
-      <DependentUpon>NewInventory-Form.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pages\UpdateInventory-Form.xaml.cs">
-      <DependentUpon>UpdateInventory-Form.xaml</DependentUpon>
+    <Compile Include="pages\InventoryDB-page.xaml.cs">
+      <DependentUpon>InventoryDB-page.xaml</DependentUpon>
     </Compile>
     <Compile Include="lib\Category.cs" />
     <Compile Include="lib\lib.cs" />
@@ -103,15 +100,17 @@
       <DependentUpon>InventoryScreen-Panel.xaml</DependentUpon>
     </Compile>
     <Compile Include="lib\ItemData.cs" />
+    <Compile Include="pages\InventoryUpdate-Form.xaml.cs">
+      <DependentUpon>InventoryUpdate-Form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\NewInventory-Form.xaml.cs">
+      <DependentUpon>NewInventory-Form.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\SettingsScreen-Panel.xaml.cs">
       <DependentUpon>SettingsScreen-Panel.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\SQL_Interface.cs" />
-    <Page Include="pages\NewInventory-Form.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="pages\UpdateInventory-Form.xaml">
+    <Page Include="pages\InventoryDB-page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="pages\InventoryUpdate-Form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -147,6 +150,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="pages\NewInventory-Form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\SettingsScreen-Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

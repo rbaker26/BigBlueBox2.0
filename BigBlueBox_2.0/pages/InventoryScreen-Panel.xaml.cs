@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BigBlueBox_2._0.pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace BigBlueBox_2._0
         public InventoryScreen_Panel()
         {
             InitializeComponent();
-            
+            Inventory_Frame.Source = new Uri("InventoryDB-page.xaml", UriKind.Relative);
         }
 
         //*************************************************************************
@@ -31,8 +32,9 @@ namespace BigBlueBox_2._0
         private void Update_Inventory_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Update Inventory Clicked");
-            //Inventory_Form_Frame.Source = new Uri("UpdateInventory-Form.xaml", UriKind.Relative);
-            //uncomment above when forms exist
+            InventoryUpdate_Form updateinvent = new InventoryUpdate_Form();
+            updateinvent.Show();
+            //Form needs to be built in window named "InventoryUpdate-Form" ##################################################
         }
 
         private void New_Inventory_Click(object sender, RoutedEventArgs e)
@@ -42,7 +44,10 @@ namespace BigBlueBox_2._0
             switch(result)
             {
                 case MessageBoxResult.Yes:
-                    Inventory_Form_Frame.Source = new Uri("NewInventory-Form.xaml", UriKind.Relative);
+                    Console.Out.WriteLine("New Item Confirmed");
+                    NewInventory_Form newinvent = new NewInventory_Form();
+                    newinvent.Show();
+                    //Form needs to be built in window named "NewInventory-Form" ##################################################
                     break;
 
                 case MessageBoxResult.No:
@@ -53,7 +58,9 @@ namespace BigBlueBox_2._0
         private void Print_Report_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Print Report Clicked");
-            //write the print report function before using this button
+            MessageBox.Show("Function still in development");
+            //write the print report function before using this button ##################################################
+            //hoping to have a form with per print options pop up and ask what to do and what file directory
         }
     }
 }

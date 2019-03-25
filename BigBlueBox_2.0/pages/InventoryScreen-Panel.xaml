@@ -6,8 +6,6 @@
         xmlns:local="clr-namespace:BigBlueBox_2._0"
         mc:Ignorable="d"
         Title="InventoryScreen_Panel" Height="720" Width="1350"
-        HorizontalAlignment="Left"
-        VerticalAlignment="Top"
         Margin="50 0 0 0"
         
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -18,10 +16,11 @@
      >
     <Grid VerticalAlignment="Top" Margin="16">
         <Grid.RowDefinitions>
+            <RowDefinition Height="265"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="265"/>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
@@ -32,42 +31,31 @@
         <!--********************************************************************************-->
         <!--Buttons to Open Inventory Forms and Print Reports-->
         <!--********************************************************************************-->
-        <Button Grid.Row="0" Width="175" Height="35" Margin="10" x:Name="Update_Inventory" Click="Update_Inventory_Click">
+        <Button Grid.Row="1" Width="175" Height="35" Margin="10" x:Name="Update_Inventory" Click="Update_Inventory_Click">
             <TextBlock Text="Update Inventory" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
 
-        <Button Grid.Row="1" Width="175" Height="35" Margin="10" x:Name="New_Inventory" Click="New_Inventory_Click">
+        <Button Grid.Row="2" Width="175" Height="35" Margin="10" x:Name="New_Inventory" Click="New_Inventory_Click">
             <TextBlock Text="New Item" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
 
-        <Button Grid.Row="2" Width="175" Height="35" Margin="10" x:Name="Print_Report" Click="Print_Report_Click">
+        <Button Grid.Row="3" Width="175" Height="35" Margin="10" x:Name="Print_Report" Click="Print_Report_Click">
             <TextBlock Text="Print Inventory Report" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
 
         <!--**************************************************************-->
         <!--This is the Frame that will show all Inventory in the database-->
         <!--**************************************************************-->
-        <StackPanel HorizontalAlignment="Right" 
+        <StackPanel HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
                     Grid.Row="0" 
-                    Grid.RowSpan="4" 
-                    Grid.Column="1" >
+                    Grid.RowSpan="5" 
+                    Grid.Column="1" 
+                    Margin="20 0 0 0">
             <Frame x:Name="Inventory_Frame"
                    Source="{Binding}"
                    NavigationUIVisibility="Hidden"/>
         </StackPanel>
 
-        <!--****************************************************-->
-        <!--This is the Frame that will show all Inventory Forms-->
-        <!--****************************************************-->
-        <StackPanel HorizontalAlignment="Left" 
-                    VerticalAlignment="Bottom" 
-                    Grid.Row="3" 
-                    Grid.RowSpan="1" 
-                    Grid.Column="0" >
-            <Frame x:Name="Inventory_Form_Frame"
-                   Source="{Binding}"
-                   NavigationUIVisibility="Hidden"/>
-        </StackPanel>
     </Grid>
 </Page>
