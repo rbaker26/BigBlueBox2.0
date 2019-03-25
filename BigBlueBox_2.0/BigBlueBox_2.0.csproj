@@ -79,10 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="forms\NewInventory-Form.xaml.cs">
+    <Compile Include="pages\NewInventory-Form.xaml.cs">
       <DependentUpon>NewInventory-Form.xaml</DependentUpon>
     </Compile>
-    <Compile Include="forms\UpdateInventory-Form.xaml.cs">
+    <Compile Include="pages\UpdateInventory-Form.xaml.cs">
       <DependentUpon>UpdateInventory-Form.xaml</DependentUpon>
     </Compile>
     <Compile Include="lib\Category.cs" />
@@ -107,11 +107,11 @@
       <DependentUpon>SettingsScreen-Panel.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\SQL_Interface.cs" />
-    <Page Include="forms\NewInventory-Form.xaml">
+    <Page Include="pages\NewInventory-Form.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="forms\UpdateInventory-Form.xaml">
+    <Page Include="pages\UpdateInventory-Form.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

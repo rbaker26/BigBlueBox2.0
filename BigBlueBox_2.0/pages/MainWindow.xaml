@@ -98,7 +98,7 @@
         <!--************************************************************-->
         <!--This is the Frame that will be changed by the buttons.      -->
         <!--************************************************************-->
-        <StackPanel HorizontalAlignment="Right" 
+        <StackPanel HorizontalAlignment="Left" 
                     VerticalAlignment="Top" 
                     Grid.Row="1" 
                     Grid.RowSpan="6" 

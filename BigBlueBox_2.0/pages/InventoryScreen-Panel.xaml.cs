@@ -22,6 +22,7 @@ namespace BigBlueBox_2._0
         public InventoryScreen_Panel()
         {
             InitializeComponent();
+            
         }
 
         //*************************************************************************
@@ -30,16 +31,29 @@ namespace BigBlueBox_2._0
         private void Update_Inventory_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("Update Inventory Clicked");
-            //Inventory_Form_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
+            //Inventory_Form_Frame.Source = new Uri("UpdateInventory-Form.xaml", UriKind.Relative);
             //uncomment above when forms exist
         }
 
         private void New_Inventory_Click(object sender, RoutedEventArgs e)
         {
             Console.Out.WriteLine("New Inventory Clicked");
-            //possibly write "are you sure this is new" y/n prompt to prevent overlap
-            //Inventory_Form_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
-            //uncomment above when forms exist
+            MessageBoxResult result = MessageBox.Show("Are your sure this Item does not already exist?" + Environment.NewLine + "Please check again before making any changes." + Environment.NewLine + "All changes are IRREVERSIBLE and should not be made unless nescessary.", "Are you sure?", MessageBoxButton.YesNo);
+            switch(result)
+            {
+                case MessageBoxResult.Yes:
+                    Inventory_Form_Frame.Source = new Uri("NewInventory-Form.xaml", UriKind.Relative);
+                    break;
+
+                case MessageBoxResult.No:
+                    break;
+
+            }
+        }
+        private void Print_Report_Click(object sender, RoutedEventArgs e)
+        {
+            Console.Out.WriteLine("Print Report Clicked");
+            //write the print report function before using this button
         }
     }
 }

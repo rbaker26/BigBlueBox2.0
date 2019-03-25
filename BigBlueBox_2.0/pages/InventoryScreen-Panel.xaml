@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BigBlueBox_2._0"
         mc:Ignorable="d"
-        Title="InventoryScreen_Panel" Height="Auto" Width="Auto"
-        HorizontalAlignment="Center"
-        
+        Title="InventoryScreen_Panel" Height="720" Width="1350"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Margin="50 0 0 0"
         
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       Background="{DynamicResource MaterialDesignPaper}"
@@ -19,6 +20,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
@@ -27,14 +30,18 @@
         </Grid.ColumnDefinitions>
 
         <!--********************************************************************************-->
-        <!--Buttons to Open Inventory Forms-->
+        <!--Buttons to Open Inventory Forms and Print Reports-->
         <!--********************************************************************************-->
-        <Button Grid.Row="0" Width="150" Height="35" Margin="10" x:Name="Update_Inventory" Click="Update_Inventory_Click">
+        <Button Grid.Row="0" Width="175" Height="35" Margin="10" x:Name="Update_Inventory" Click="Update_Inventory_Click">
             <TextBlock Text="Update Inventory" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Button>
 
-        <Button Grid.Row="1" Width="150" Height="35" Margin="10" x:Name="New_Inventory" Click="New_Inventory_Click">
+        <Button Grid.Row="1" Width="175" Height="35" Margin="10" x:Name="New_Inventory" Click="New_Inventory_Click">
             <TextBlock Text="New Item" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Button>
+
+        <Button Grid.Row="2" Width="175" Height="35" Margin="10" x:Name="Print_Report" Click="Print_Report_Click">
+            <TextBlock Text="Print Inventory Report" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         </Button>
 
         <!--**************************************************************-->
@@ -43,7 +50,7 @@
         <StackPanel HorizontalAlignment="Right" 
                     VerticalAlignment="Top" 
                     Grid.Row="0" 
-                    Grid.RowSpan="2" 
+                    Grid.RowSpan="4" 
                     Grid.Column="1" >
             <Frame x:Name="Inventory_Frame"
                    Source="{Binding}"
