@@ -118,6 +118,23 @@ namespace BigBlueBox_2._0
             return myreader;
         }
         //*****************************************************************************************
+
+
+        //*****************************************************************************************
+        public List<string> GetCategoryList()
+        {
+            SQLiteDataReader sqlite_datareader;
+
+            String query = "SELECT  FROM inventory WHERE target_quantity > quantity;";
+            SQLiteCommand command = m_dbConnection.CreateCommand();
+            command.CommandText = query;
+            sqlite_datareader = command.ExecuteReader();
+
+
+
+            return new List<string>();
+        }
+        //*****************************************************************************************
     }
 
 }

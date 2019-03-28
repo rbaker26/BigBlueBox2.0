@@ -13,4 +13,12 @@
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.110" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BigBlueBox_lib\BigBlueBox_lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BigBlueBox_lib\BigBlueBox_lib.csproj" />
+  </ItemGroup>
+
 </Project>

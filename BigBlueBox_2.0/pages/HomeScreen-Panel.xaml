@@ -13,7 +13,7 @@
       TextElement.FontWeight="Medium"
       TextElement.FontSize="14"
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-      Margin="700 0 0 0"
+      Margin="0 0 200 0"
       >
 
     <Grid VerticalAlignment="Center" >
@@ -53,7 +53,8 @@
                   FontSize="18"
                   Margin="16" 
                   Content="0"
-                  x:Name="ItemsNeedingAttention_Button">
+                  x:Name="ItemsNeedingAttention_Button"
+                  >
             
         </Button>
 

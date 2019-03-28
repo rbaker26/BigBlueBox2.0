@@ -5,7 +5,12 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBlueBox_2.0", "BigBlueBox_2.0\BigBlueBox_2.0.csproj", "{CCD4D23C-3C9B-4D1B-8B18-62530DF8ABC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib_Test", "Lib_Test\Lib_Test.csproj", "{116067F8-6268-43E4-8788-DAC3812B1BD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib_Test", "Lib_Test\Lib_Test.csproj", "{116067F8-6268-43E4-8788-DAC3812B1BD5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CCD4D23C-3C9B-4D1B-8B18-62530DF8ABC4} = {CCD4D23C-3C9B-4D1B-8B18-62530DF8ABC4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBlueBox_lib", "BigBlueBox_lib\BigBlueBox_lib.csproj", "{C92D5F1D-F58B-4F62-898B-7D7FE1FE331B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{116067F8-6268-43E4-8788-DAC3812B1BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{116067F8-6268-43E4-8788-DAC3812B1BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{116067F8-6268-43E4-8788-DAC3812B1BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C92D5F1D-F58B-4F62-898B-7D7FE1FE331B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92D5F1D-F58B-4F62-898B-7D7FE1FE331B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92D5F1D-F58B-4F62-898B-7D7FE1FE331B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92D5F1D-F58B-4F62-898B-7D7FE1FE331B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -39,7 +39,6 @@ namespace BigBlueBox_2._0
         {
             Console.Out.WriteLine("Home Clicked");
             Widget_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
-
         }
 
         private void Inventory_Button_Click(object sender, RoutedEventArgs e)

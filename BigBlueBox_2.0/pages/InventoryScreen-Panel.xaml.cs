@@ -23,7 +23,7 @@ namespace BigBlueBox_2._0
         public InventoryScreen_Panel()
         {
             InitializeComponent();
-            Inventory_Frame.Source = new Uri("InventoryDB-page.xaml", UriKind.Relative);
+           // Inventory_Frame.Source = new Uri("InventoryDB-page.xaml", UriKind.Relative);
         }
 
         //*************************************************************************

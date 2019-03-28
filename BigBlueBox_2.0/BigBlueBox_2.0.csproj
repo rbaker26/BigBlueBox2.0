@@ -79,11 +79,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="pages\InventoryDB-page.xaml.cs">
-      <DependentUpon>InventoryDB-page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="lib\Category.cs" />
-    <Compile Include="lib\lib.cs" />
     <Compile Include="pages\AccountsScreen-Panel.xaml.cs">
       <DependentUpon>AccountsScreen-Panel.xaml</DependentUpon>
     </Compile>
@@ -99,21 +94,12 @@
     <Compile Include="pages\InventoryScreen-Panel.xaml.cs">
       <DependentUpon>InventoryScreen-Panel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="lib\ItemData.cs" />
-    <Compile Include="pages\InventoryUpdate-Form.xaml.cs">
-      <DependentUpon>InventoryUpdate-Form.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pages\NewInventory-Form.xaml.cs">
-      <DependentUpon>NewInventory-Form.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pages\SettingsScreen-Panel.xaml.cs">
       <DependentUpon>SettingsScreen-Panel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="src\Item_Category_SQL_Factory.cs" />
     <Compile Include="src\SQL_Interface.cs" />
-    <Page Include="pages\InventoryDB-page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="src\Troop_Factory.cs" />
     <Page Include="pages\AccountsScreen-Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,7 +194,12 @@
   <ItemGroup>
     <Resource Include="rec\outline_supervisor_account_black_18dp.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BigBlueBox_lib\BigBlueBox_lib.csproj">
+      <Project>{c92d5f1d-f58b-4f62-898b-7d7fe1fe331b}</Project>
+      <Name>BigBlueBox_lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

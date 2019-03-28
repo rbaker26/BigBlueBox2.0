@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BigBlueBox_2._0
+namespace BigBlueBox_lib.Item
 {
-    class ItemData
+    public class Item
     {
         private String itemName;
         private int quantity;
