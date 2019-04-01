@@ -8,16 +8,32 @@ namespace BigBlueBox_lib.Item
 {
     public class Item
     {
-        private String itemName;
-        private int quantity;
-        private int effectiveOnHand;
-        private String boxName;
-        private bool canExpire;
+        public Item()
+        {
+            ItemName = "";
+            Quantity = 0;
+            EffectiveOnHand = 0;
+            BoxName = "";
+            CanExpire = false;
+
+            ModifiedBy = "";
+        }
+        public String ItemName { get; set; }
+        public int Quantity { get; set; }
+        public int EffectiveOnHand { get; set; }
+        public int CatTemp { get; set; }
+        public String BoxName { get; set; }
+        public bool CanExpire { get; set; }
 
 
-        DateTime dateModified;
-        String modifiedBy;
+        public DateTime DateModified { get; set; }
+        public String ModifiedBy { get; set; }
 
+
+        public override string ToString()
+        {
+            return ItemName;
+        }
 
 
     }
