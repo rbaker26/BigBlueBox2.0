@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowMeTheXAML;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,13 @@ namespace BigBlueBox_2._0
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            XamlDisplay.Init();
+            base.OnStartup(e);
+        }
+
     }
+
+
 }

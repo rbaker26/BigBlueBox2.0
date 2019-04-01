@@ -25,7 +25,7 @@ namespace BigBlueBox_2._0
        public MainWindow()
         {
             InitializeComponent();
-            Widget_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
+        //    Widget_Frame.Source = new Uri("HomeScreen-Panel.xaml", UriKind.Relative);
 
 
         }

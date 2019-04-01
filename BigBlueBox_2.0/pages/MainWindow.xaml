@@ -34,64 +34,17 @@
         </Grid.ColumnDefinitions>
 
 
-        <Label Grid.Row="0" Grid.ColumnSpan="3"
+        <!--<Label Grid.Row="0" Grid.ColumnSpan="3"
                HorizontalAlignment="Center" 
                FontSize="48" FontFamily="Roboto" 
                Margin="0 0 0 75">
             Big Blue Box IMS
-        </Label>
-
-        <!--********************************************************************************-->
-        <!--Menu Buttons-->
-        <!--********************************************************************************-->
-        <Button Grid.Row="1" Grid.Column="0" Width="100" Height="100" Margin="10" x:Name="Home_Button" Click="Home_Button_Click" >
-            <StackPanel Orientation="Vertical">
-                <Image Source="..\rec\outline_home_black_18dp.png"  Width="40" Height="40"/>
-                <TextBlock Text="Home" VerticalAlignment="Center" />
-            </StackPanel>
-        </Button>
-
-        <Button Grid.Row="2" Grid.Column="0" Width="100" Height="100" Margin="10" x:Name="Inventory_Button"  Click="Inventory_Button_Click">
-            <StackPanel Orientation="Vertical">
-                <Image Source="..\rec\outline_shopping_cart_black_18dp.png"  Width="40" Height="40"/>
-                <TextBlock Text="Inventory" VerticalAlignment="Center" />
-            </StackPanel>
-        </Button>
-
-        <Button Grid.Row="3" Grid.Column="0" Width="100" Height="100" Margin="10" x:Name="Gear_Button" Click="Gear_Button_Click">
-            <StackPanel Orientation="Vertical">
-                <Image Source="..\rec\outline_code_black_18dp.png"  Width="40" Height="40"/>
-                <!--Needs space before gear for weird formatting bug-->
-                <TextBlock Text=" Gear" VerticalAlignment="Center" />
-            </StackPanel>
-        </Button>
-
-        <Button Grid.Row="4" Grid.Column="0" Width="100" Height="100" Margin="10" x:Name="Analytics_Button" Click="Analytics_Button_Click">
-            <StackPanel Orientation="Vertical">
-                <Image Source="..\rec\outline_poll_black_18dp.png"  Width="40" Height="40"/>
-                <TextBlock Text="Analytics" VerticalAlignment="Center" />
-            </StackPanel>
-        </Button>
-
-        <Button Grid.Row="5" Grid.Column="0" Width="100" Height="100" Margin="10" x:Name="Accounts_Button" Click="Accounts_Button_Click">
-            <StackPanel Orientation="Vertical">
-                <Image Source="..\rec\outline_supervisor_account_black_18dp.png"  Width="40" Height="40"/>
-                <TextBlock Text="Accounts" VerticalAlignment="Center" />
-            </StackPanel>
-        </Button>
+        </Label>-->
 
 
-        <Button Grid.Row="6" Grid.Column="0" Width="100" Height="100" Margin="10" x:Name="Settings_Button" Click="Settings_Button_Click">
-            <StackPanel Orientation="Vertical">
-                <Image Source="..\rec\outline_settings_black_18dp.png"  Width="40" Height="40"/>
-                <TextBlock Text="Settings" VerticalAlignment="Center" />
-            </StackPanel>
-        </Button>
-        <!--********************************************************************************-->
+        <Frame Source="Test.xaml" />
 
-
-
-        <!--********************************************************************************-->
+            <!--********************************************************************************-->
         <!--Main Page Info-->
         <!--********************************************************************************-->
 
