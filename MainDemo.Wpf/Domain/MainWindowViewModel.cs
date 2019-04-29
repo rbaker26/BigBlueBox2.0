@@ -26,7 +26,7 @@ namespace MaterialDesignColors.BigBlueBox2.Domain
                         DocumentationLink.DemoPageLink<Home>()
                     }
                 ),
-                new DemoItem("Inventory Splash Screen", new Home(),
+                new DemoItem("Inventory Splash Screen", new InventorySplashScreen(),
                     new []
                     {
                         new DocumentationLink(DocumentationLinkType.Wiki, $"{ConfigurationManager.AppSettings["GitHub"]}/wiki", "WIKI"),
@@ -47,7 +47,7 @@ namespace MaterialDesignColors.BigBlueBox2.Domain
                         DocumentationLink.DemoPageLink<Home>()
                     }
                 ),
-                new DemoItem("Gear", new Home(),
+                new DemoItem("Gear", new Gear_Page(),
                     new []
                     {
                         new DocumentationLink(DocumentationLinkType.Wiki, $"{ConfigurationManager.AppSettings["GitHub"]}/wiki", "WIKI"),

@@ -32,7 +32,7 @@ namespace BigBlueBox_lib.Item
 
         public override string ToString()
         {
-            return ItemName;
+            return "Item Name:\t" + ItemName + "\tQuantity:\t" + Quantity + "\tTarget:\t" + EffectiveOnHand + "\tBox Name:\t" + BoxName;
         }
 
 
