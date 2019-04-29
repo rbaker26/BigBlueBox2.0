@@ -9,16 +9,18 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"             >
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-           
+            <RowDefinition Height="220" />
+
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="1400" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <!--private String itemName;
@@ -31,18 +33,40 @@
         <!--Table Grid Area-->
         <!--*************************************************************************-->
 
-        <Grid Grid.Row="0" Grid.Column="0" Margin="16 0 16 0">
-            <Grid.RowDefinitions>
+        <!--Acting as buff rn-->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="16 0 16 0">
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            
-            <TextBox x:Name="NameTextBox"
-                     materialDesign:HintAssist.Hint="Search">
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>-->
+
+
+            <!--<ComboBox materialDesign:HintAssist.Hint="Search"
+                      IsEditable="True"
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                      x:Name="SearchBox"
+                      KeyUp="SearchBox_KeyUp" >-->
+            <!--<ComboBoxItem IsSelected="True">
+                    Apple
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Banana
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Pear
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Orange
+                </ComboBoxItem>-->
+
+            <!--<TextBox x:Name="SearchTextBox"
+                     materialDesign:HintAssist.Hint="Search"
+                     Grid.Row="0" Grid.Column="0"
+                     >
                 <TextBox.Text>
                     <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
@@ -51,34 +75,483 @@
                         </Binding.ValidationRules>
                     </Binding>
                 </TextBox.Text>
-            </TextBox>
+            </TextBox>-->
+
+
         </Grid>
         <!--<TextBox Grid.Row="0" Grid.Column="1" Margin="0 8 0 8"
                      HorizontalAlignment="Left">Hello darkness my old friend</TextBox>-->
-        
-        
-        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Item}" x:Name="Inventory_Table"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <ListView.View>
-                <GridView>
-                    <!--TODO-->
-                    <!--Figure out what DisplayMemberBinding does-->
-                    <!--<GridViewColumn DisplayMemberBinding="{Binding Item_Description}" Header="Item Description" Width="400"/>-->
-                    <GridViewColumn DisplayMemberBinding="{Binding ItemName}" Header="Item Description" Width="400"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" />
-                    <GridViewColumn DisplayMemberBinding="{Binding EffectiveOnHand}" Header="Target Quantity" />
-                    <GridViewColumn DisplayMemberBinding="{Binding BoxName}" Header="Box Description" Width="400"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding CanExpire}" Header="Can Expire" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+
+        <GroupBox
+              Grid.Row="1" Grid.Column="0" 
+              Grid.RowSpan="2"
+              
+              Margin="16">
+
+
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                              Kind="TableLarge"
+                              Height="32"
+                              Width="32"
+                              VerticalAlignment="Center" />
+                        <TextBlock
+                              Margin="8,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                              Text="Inventory Table" />
+
+
+                        <Label HorizontalAlignment="Stretch"
+                               Content=" " MinWidth="820"></Label>
+
+                        <!--<TextBox
+                            Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                            VerticalAlignment="Top"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            MaxWidth="400"
+                            materialDesign:HintAssist.Hint="Floating hint in a box"
+                            IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextFieldTextBoxEnabledComboBox}" 
+                         />-->    
+
+                        <TextBox x:Name="SearchTextBox2"
+                             materialDesign:HintAssist.Hint="Search"
+                             Grid.Row="0" Grid.Column="2"
+                             HorizontalAlignment="Right"
+                             MinWidth="350px"
+                        >
+                            <TextBox.Text>
+                                <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+            <!--<GroupBox.Header>
+                <Grid HorizontalAlignment="Stretch">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <materialDesign:PackIcon Kind="TableLarge" Grid.Row="0" Grid.Column="0"
+                                             
+                              Height="32"
+                              Width="32"
+                              VerticalAlignment="Center"/>
+                    <Label HorizontalAlignment="Left"  Grid.Row="0" Grid.Column="1"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           >Inventory Table</Label>
+
+                    <TextBox x:Name="SearchTextBox2"
+                     materialDesign:HintAssist.Hint="Search"
+                     Grid.Row="0" Grid.Column="2"
+                             HorizontalAlignment="Right"
+                             MinWidth="350px"
+                     >
+                        <TextBox.Text>
+                            <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <domain1:NotEmptyValidationRule ValidatesOnTargetUpdated="True" 
+                                                            xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
+
+
+            </GroupBox.Header>-->
+
+
+            <ListView  ItemsSource="{Binding Item}" x:Name="Inventory_Table"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                   MouseDoubleClick="Inventory_Table_MouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding ItemName}" Header="Item Description" Width="400"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" />
+                        <GridViewColumn DisplayMemberBinding="{Binding EffectiveOnHand}" Header="Target Quantity" />
+                        <GridViewColumn DisplayMemberBinding="{Binding BoxName}" Header="Box Description" Width="400"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding CanExpire}" Header="Can Expire" />
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+        </GroupBox>
+
+
+
+
+
         <!--*************************************************************************-->
 
-        
+
 
         <!--*************************************************************************-->
         <!--Edit Page Grid Area-->
         <!--*************************************************************************-->
+
+
+        <!--<Border BorderBrush="#FF179AC8" BorderThickness="2" />-->
+
+
+
+        <!--<TextBox x:Name="ItemTextBox"
+                     Grid.Row="0" Grid.Column="0"
+                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                     MinWidth="400"
+                     materialDesign:HintAssist.Hint="Search"
+             
+                     >
+                <TextBox.Text>
+                    <Binding Path="Item" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <domain1:NotEmptyValidationRule ValidatesOnTargetUpdated="True" 
+                                                            xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>-->
+
+
+        <GroupBox
+                    Grid.Row="1" Grid.Column="1"
+                    Header="Item Edit Toolbox"
+                    Style="{DynamicResource MaterialDesignCardGroupBox}"
+                    Margin="16">
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                              Kind="CodeTags"
+                              Height="32"
+                              Width="32"
+                              VerticalAlignment="Center" />
+                        <TextBlock
+                              Margin="8,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                              Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+
+            <Grid   Margin="16 8 16 8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+               >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="ItemTextBox"
+                     Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                     Margin="0,8,0,4"
+                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                     MinWidth="400"
+                     materialDesign:HintAssist.Hint="Item Name"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+
+                />
+                <TextBox x:Name="ItemBoxName"
+                     Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                     Margin="0,4,0,4"
+                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                     MinWidth="400"
+                     materialDesign:HintAssist.Hint="Box Name"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                />
+
+                <ComboBox
+                          Grid.Row="3" Grid.Column="0"
+                          materialDesign:HintAssist.Hint="quantity"
+                          Margin="0 4 8 4"
+                          VerticalAlignment="Bottom"
+                          IsEditable="True"
+                          ItemsSource="{Binding LongListToTestComboVirtualization}">
+                    <!--<ComboBox.Text>
+                        --><!--<Binding
+                          Path="SelectedTextTwo"
+                          Mode="TwoWay"
+                          UpdateSourceTrigger="PropertyChanged">        
+                            <Binding.ValidationRules>
+                                <domain1:NotEmptyValidationRule
+                                    ValidatesOnTargetUpdated="True" xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain" />
+                            </Binding.ValidationRules>
+                        </Binding>--><!--
+                    </ComboBox.Text>-->
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+                
+                
+                <ComboBox Grid.Row="3" Grid.Column="1"
+                          Margin="8 4 0 4"
+                          materialDesign:HintAssist.Hint="target">
+                    
+                </ComboBox>
+
+                <CheckBox Grid.Row="4" Grid.Column="0"
+                          Margin="0 16 0 16"
+                          Style="{StaticResource MaterialDesignCheckBox}"
+                          >
+                    Can Expire
+                </CheckBox>
+
+                <Button
+                    Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                    Margin="0 16 0 16"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                    Apply
+                </Button>
+
+                <!--<Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                    Margin="0 64 0 0"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                    <StackPanel>
+                        
+                        <materialDesign:PackIcon Kind="Add" />
+
+                        <TextBox>Add Item</TextBox>
+                    </StackPanel>
+                    
+                </Button>-->
+
+
+                <Grid  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                       HorizontalAlignment="Center"
+                        Margin="0 200 0 16">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    
+                    <!--<materialDesign:Badged
+                          Margin="16 0 16 0"
+                          Grid.Row="0" Grid.Column="0"
+                          Badge="{materialDesign:PackIcon Add}"
+                          BadgeColorZoneMode="Accent"
+                          HorizontalAlignment="Center">-->
+                        <Button
+                            Margin="16 0 16 0"
+                            Grid.Row="0" Grid.Column="0"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                           
+                            Width="128">    
+                            <Button.CommandParameter>
+                                <StackPanel Margin="16">
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}"
+                                               FontSize="24"
+                                               Margin="8 4 0 8"
+                                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                                               >
+                                        Add Item Menu
+                                    </TextBlock>
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                               FontSize="12"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Left"
+                                               Margin="0 4 8 16">
+                                        Before adding and item: <LineBreak/>
+                                        Make sure that you are not adding an item that is already in the database.
+                                    </TextBlock>
+
+                                    <TextBox x:Name="NewItemTextBox"
+                                         Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                                         Margin="8,8,8,4"
+                                         VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                         MinWidth="400"
+                                         materialDesign:HintAssist.Hint="Item Name"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+
+                                    />
+                                    <TextBox x:Name="NewItemBoxName"
+                                         Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                         Margin="8,4,8,4"
+                                         VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                         MinWidth="400"
+                                         materialDesign:HintAssist.Hint="Box Name"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    />
+
+                                    <ComboBox Grid.Row="4" Grid.Column="0"
+                                              Margin="8,8,8,8"
+                                              materialDesign:HintAssist.Hint="Quantity">
+                                        
+                                    </ComboBox>
+
+                                    <ComboBox Grid.Row="4" Grid.Column="1"
+                                              Margin="8,8,8,8"
+                                              materialDesign:HintAssist.Hint="Target">
+
+                                    </ComboBox>
+
+                                    <CheckBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                                              HorizontalAlignment="Left"
+                                              Margin="8,8,8,32">
+                                        
+                                        Can Expire
+                                    </CheckBox>
+
+                                    <!--<ProgressBar
+                                            Style="{DynamicResource MaterialDesignCircularProgressBar}"
+                                            HorizontalAlignment="Center"
+                                            Margin="16"
+                                            IsIndeterminate="True"
+                                            Value="0" 
+                                    />-->
+                                    
+                                    
+                                    
+                                    <Button
+                                          Margin="8,32,8,8"
+                                          Grid.Row="6" Grid.Column="0"
+                                          Style="{StaticResource MaterialDesignFlatButton}"
+                                          IsCancel="True"
+                                          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                          CommandParameter="Sample2Cancel"
+                                          HorizontalAlignment="Center">
+                                        CANCEL
+                                    </Button>
+                                    <Button
+                                          Margin="8,32,8,8"
+                                          Grid.Row="6" Grid.Column="1" 
+                                          Style="{StaticResource MaterialDesignFlatButton}"
+                                          IsCancel="True"
+                                          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                          CommandParameter="Sample2Cancel"
+                                          HorizontalAlignment="Center">
+                                        APPLY
+                                    </Button>
+                                </Grid>
+                                    
+                                </StackPanel>
+                            </Button.CommandParameter>
+                            Add Item
+                        </Button>
+                    <!--</materialDesign:Badged>-->
+                    <materialDesign:Badged
+                          Margin="16 0 16 0"
+                          Grid.Row="0" Grid.Column="1"
+                          Badge="{materialDesign:PackIcon Close}"
+                          BadgeColorZoneMode="Accent"
+                          HorizontalAlignment="Center">
+                        <Button>
+                            Remove Item
+                        </Button>
+                    </materialDesign:Badged>
+                </Grid>
+                
+
+            </Grid>
+
+        </GroupBox>
+
+
+        <GroupBox
+            Grid.Row="2" Grid.Column="1"
+          
+          Style="{DynamicResource MaterialDesignGroupBox}"
+          Margin="16"
+          materialDesign:ColorZoneAssist.Mode="Accent">
+
+
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                              Kind="InformationVariant"
+                              Height="32"
+                              Width="32"
+                              VerticalAlignment="Center" />
+                        <TextBlock
+                              Margin="8,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                              Text="Item Toolbox Information" />
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+
+            
+            <!--<GroupBox.Header>
+                <Label>Item Toolbox Information</Label>
+                <materialDesign:PackIcon Kind="InformationVariant" />
+            </GroupBox.Header>-->
+            <TextBlock
+                 Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                FontSize="13">
+                All edits to the inventory are permienant and cannot be undone. <LineBreak/>
+                Make sure to double check all item fields before pressing Apply.
+                 <LineBreak/>
+                 <LineBreak/>
+                Double-click a row to edit the item.
+            </TextBlock>
+        </GroupBox>
+
 
         <!--*************************************************************************-->
 

@@ -1,0 +1,485 @@
+﻿<UserControl x:Class="MaterialDesignDemo.Gear_Page"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterialDesignDemo"
+             xmlns:domain="clr-namespace:MaterialDesignColors.BigBlueBox2.Domain"
+             xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <!--***********************************************************************************-->
+        <!--Grid Definitions                                                                   -->
+        <!--***********************************************************************************-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--***********************************************************************************-->
+
+
+        <!--***********************************************************************************-->
+        <!--Heading Spacer                                                                     -->
+        <!--***********************************************************************************-->
+        <Grid  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Margin="16 0 16 0"></Grid>
+        <!--***********************************************************************************-->
+
+
+
+        <!--***********************************************************************************-->
+        <!--Gear Info Box                                                                      -->
+        <!--***********************************************************************************-->
+        <GroupBox Grid.Row="1" Grid.Column="0" Margin="16">
+            <!--*****************************************************************-->
+            <!--Gear Info Box Header                                             -->
+            <!--*****************************************************************-->
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                              Kind="AppleSafari"
+                              Height="32"
+                              Width="32"
+                              VerticalAlignment="Center" 
+                        />
+                        <TextBlock
+                              Margin="8,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                              Text="Gear Info" 
+                        />
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+            <!--*****************************************************************-->
+
+
+            <!--*****************************************************************-->
+            <!--Gear Info Box Body                                               -->
+            <!--*****************************************************************-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox   Grid.Row="0" Grid.Column="0" Margin="8"
+                           materialDesign:HintAssist.Hint="Gear Name"
+                           MinWidth="350px"
+                           IsEnabled="False"
+                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                           VerticalAlignment="Top">
+
+                </TextBox>
+                <TextBox   Grid.Row="0" Grid.Column="1" Margin="8"
+                           materialDesign:HintAssist.Hint="Individual ID"
+                           MinWidth="350px"
+                           IsEnabled="False"
+                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                           VerticalAlignment="Top">
+
+                </TextBox>
+
+
+                <TextBox Grid.Row="1" Grid.Column="0" Margin="8"
+                         materialDesign:HintAssist.Hint="Health Status"
+                         MinWidth="350px"
+                         IsEnabled="False"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Top">
+                    
+                </TextBox>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="8"
+                         materialDesign:HintAssist.Hint="Expected End of Service Life"
+                         MinWidth="350px"
+                         IsEnabled="False"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Top">
+                </TextBox>
+
+                <Grid  Grid.Row="3" Grid.Column="0"  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0" Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Margin="8"
+                        Width="125">
+                        Update Health
+                    </Button>
+
+                    <Button Grid.Row="0" Grid.Column="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Margin="8"
+                        Width="125">
+                        Search Item
+                    </Button>
+                </Grid>
+
+
+                <Grid Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Margin="8" x:Name="ItemQRCode"
+                           RenderSize="200 200"
+                           Width="200" Height="200"/>
+
+                    <materialDesign:PackIcon Kind="Qrcode"
+                                             Grid.Row="1" Grid.Column="0"
+                                             Width="28" Height="28"
+                                             Margin="4 8 2 0"
+                    />
+                    <TextBox Grid.Row="1" Grid.Column="1" 
+                        HorizontalAlignment="Stretch" 
+                        TextAlignment="Left" VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="QrCode"
+                        Margin="4 2 8 8"
+                        IsEnabled="False"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    />
+
+                </Grid>
+                
+            </Grid>
+            <!--*****************************************************************-->
+        </GroupBox>
+        <!--***********************************************************************************-->
+
+
+
+
+        <!--***********************************************************************************-->
+        <!--Notes List Box                                                                      -->
+        <!--***********************************************************************************-->
+        <GroupBox   Grid.Row="2" Grid.Column="0" Margin="16"
+                   
+                    Style="{DynamicResource MaterialDesignGroupBox}"
+                    materialDesign:ColorZoneAssist.Mode="Accent"
+                    
+                    
+        >
+
+            <!--*****************************************************************-->
+            <!--Notes List Box Header                                            -->
+            <!--*****************************************************************-->
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                              Kind="NoteText"
+                              Height="32"
+                              Width="32"
+                              VerticalAlignment="Center" 
+                        />
+                        <TextBlock
+                              Margin="8,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                              Text="Gear Notes"
+                        />
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+            <!--*****************************************************************-->
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                
+                <ListView  ItemsSource="{Binding Note}" 
+                           x:Name="Notes_Table"
+                           ScrollViewer.VerticalScrollBarVisibility="Visible"
+                           Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                        
+                  >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding NoteText}" Header="Note" Width="600" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author" Width="200" />
+                            <GridViewColumn DisplayMemberBinding="{Binding DateTimePublished}" Header="Time Stamp" Width="125"/>
+                        </GridView>
+                    </ListView.View>
+                    
+
+                </ListView>
+                <Button Grid.Row="1" Grid.Column="1"
+                        Width="100"
+                        HorizontalAlignment="Right"
+                        Margin="16"
+                        Style="{StaticResource MaterialDesignRaisedLightButton}">
+                    Add Note
+                </Button>
+            </Grid>
+
+        </GroupBox>
+        <!--***********************************************************************************-->
+
+
+
+
+        <!--***********************************************************************************-->
+        <!--Check In/Out Box                                                                      -->
+        <!--***********************************************************************************-->
+        <GroupBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Margin="16"
+                  Header="Checkout Toolbox"
+                  Style="{DynamicResource MaterialDesignCardGroupBox}"
+                  >
+            <GroupBox.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                              Kind="TagTextOutline"
+                              Height="32"
+                              Width="32"
+                              VerticalAlignment="Center" />
+                        <TextBlock
+                              Margin="8,0,0,0"
+                              VerticalAlignment="Center"
+                              Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                              Text="{Binding}" />   
+                    </StackPanel>
+                </DataTemplate>
+            </GroupBox.HeaderTemplate>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <DockPanel Grid.Row="0" Grid.Column="0" Margin="16">
+                    <materialDesign:PackIcon 
+                        Kind="Qrcode"
+                        Width="32" Height="32"
+                        Margin="2"
+                        VerticalAlignment="Center"
+                    />
+                    <TextBox
+                        Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        Width="200" Height="60"
+                        materialDesign:HintAssist.Hint="Scan Code"
+                        Margin="2"
+                    />
+                </DockPanel>
+
+
+                <!--*******************************************************************-->
+                <!--Person Info Grid-->
+                <!--*******************************************************************-->
+                <Grid  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="16">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        
+                    </Grid.ColumnDefinitions>
+
+
+                    <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="8 8 8 32" BorderThickness="0 2 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}" />
+
+                    <DockPanel  Grid.Row="1" Grid.Column="0" Margin="2 16 8 0" >
+                        <materialDesign:PackIcon Kind="HumanHandsup"
+                                                 Height="24" Width="24"
+                                                 VerticalAlignment="Center"  />
+                        <TextBlock
+                               VerticalAlignment="Bottom"
+                               Style="{StaticResource MaterialDesignSubheadingTextBlock}">
+                        Person Info
+                        </TextBlock>
+                        
+                    </DockPanel>
+
+
+
+
+
+                    <TextBox Grid.Row="2" Grid.Column="0" Margin="8 2 8 2"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Top"
+                         IsEnabled="False"
+                         TextWrapping="Wrap"
+                         Width="200" Height="60"
+                         materialDesign:HintAssist.Hint="Troop"
+                    />
+                    <TextBox Grid.Row="2" Grid.Column="1" Margin="8 2 8 2"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Top"
+                         IsEnabled="False"
+                         TextWrapping="Wrap"
+                         Width="200" Height="60"
+                         materialDesign:HintAssist.Hint="Patrol"
+                    />
+                    <Image Grid.Row="2" Grid.RowSpan="3" Grid.Column="2" Margin="8" x:Name="PersonQRCode"
+                           RenderSize="200 200"
+                           Width="200" Height="200"
+                    />
+                    <TextBox Grid.Row="3" Grid.Column="0" Margin="8 2 8 2"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Top"
+                         IsEnabled="False"
+                         TextWrapping="Wrap"
+                         Width="200" Height="60"
+                         materialDesign:HintAssist.Hint="First Name"
+                    />
+                    <TextBox Grid.Row="3" Grid.Column="1" Margin="8 2 8 2"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Top"
+                         IsEnabled="False"
+                         TextWrapping="Wrap"
+                         Width="200" Height="60"
+                         materialDesign:HintAssist.Hint="Last Name"
+                    />
+
+                    <TextBox Grid.Row="4" Grid.Column="0" Margin="8 2 8 2"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Top"
+                         IsEnabled="False"
+                         TextWrapping="Wrap"
+                         Width="200" Height="60"
+                         materialDesign:HintAssist.Hint="PID"
+                    />
+
+                    <Button Grid.Row="5" Grid.Column="0"
+                            Margin="4"
+                            Width="125"
+                            HorizontalAlignment="Left"
+                            Content="Search Person"
+                    />
+
+
+                    <DockPanel Grid.Row="5" Grid.Column="2" Width="200"> 
+                        <materialDesign:PackIcon 
+                            Kind="Qrcode"
+                            Width="28" Height="28"
+                            
+                        />
+                        <TextBox 
+                            HorizontalAlignment="Stretch" 
+                            TextAlignment="Left" VerticalAlignment="Center"
+                            materialDesign:HintAssist.Hint="QrCode"
+                            
+                            IsEnabled="False"
+                            
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        />
+                    </DockPanel>
+
+
+                    <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Margin="8 16 8 32" BorderThickness="0 2 0 0" BorderBrush="{DynamicResource MaterialDesignDivider}" />
+
+                    
+                    
+                    <DockPanel Grid.Row="7" Grid.Column="0"  Margin="2 16 8 0" >
+                        <materialDesign:PackIcon Kind="CheckboxMarkedCircleOutline"                                                  
+                                                 Height="24" Width="24"
+                                                 VerticalAlignment="Center"  />
+                        <TextBlock
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                                Margin="4 0 0 0">
+                            Confirm Checkout
+                        </TextBlock>
+                    </DockPanel>
+
+                    <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                        <Button Margin="0 48 16 16"
+                                Width="100"
+                                HorizontalAlignment="Center"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}">
+                            Cancel
+                        </Button>
+                        
+                        <Button Margin="0 48 16 16"
+                                Width="100"
+                                HorizontalAlignment="Center"
+                                IsEnabled="False">
+                            Submit
+                        </Button>
+                        
+                    </StackPanel>
+
+
+                    
+                    
+
+                    <!--<Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"
+                            HorizontalAlignment="Center">
+                        Checkout
+                    </Button>-->
+
+                </Grid>
+                <!--*******************************************************************-->
+
+
+
+
+            </Grid>
+
+        </GroupBox>
+        <!--***********************************************************************************-->
+
+    </Grid>
+</UserControl>
