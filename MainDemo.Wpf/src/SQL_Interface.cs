@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using BigBlueBox_lib.Item;
 using BigBlueBox_lib.Gear;
+using System.Globalization;
 
 namespace MaterialDesignColors.BigBlueBox2.src
 
@@ -282,11 +283,11 @@ namespace MaterialDesignColors.BigBlueBox2.src
 
             SQLiteDataReader sqlite_datareader;
 
-            String query = "Select * FROM gear_notes WHERE cat_id = ? AND idv_id = ?;";
+            string query = "Select note, author, time_stamp FROM gear_notes WHERE gear_cat_id = @catID AND gear_idv_id = @idvID ORDER BY time_stamp ASC;";
             SQLiteCommand command = m_dbConnection.CreateCommand();
-            command.Parameters.Add(gear.CatId);
-            command.Parameters.Add(gear.IdvId);
 
+            command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@catID", gear.CatId));
+            command.Parameters.Add(new System.Data.SQLite.SQLiteParameter("@idvID", gear.IdvId));
             command.CommandText = query;
             sqlite_datareader = command.ExecuteReader();
 
@@ -298,19 +299,20 @@ namespace MaterialDesignColors.BigBlueBox2.src
                 sqlite_datareader.Read();
                 while (sqlite_datareader.Read())
                 {
-                    temp.NoteText = sqlite_datareader.GetString(1);
-                    temp.Author  = sqlite_datareader.GetString(2);
-                    temp.TimeStamp = sqlite_datareader.GetDateTime(3);
-
-
-
+                    temp.NoteText = sqlite_datareader.GetString(0);
+                    temp.Author = sqlite_datareader.GetString(1);
+                    
+                    temp.TimeStamp = DateTime.ParseExact(sqlite_datareader.GetString(2),"yyyy/MM/dd HH:mm::ss", null);
                     notes.Add(temp);
-                    temp = new Gear_Note();
+
+
                     //****************************************
                     // Debug Code
                     //****************************************
                     //Console.Out.WriteLine(temp.ToString());
                     //****************************************
+
+                    temp = new Gear_Note();
                 };
             }
             catch (InvalidCastException e)
@@ -321,6 +323,10 @@ namespace MaterialDesignColors.BigBlueBox2.src
             }
 
             return notes;
+        }
+        public List<Gear_Note> GetGearNotes(int catId, int idvId)
+        {
+            return GetGearNotes(new Gear("", catId, idvId, 0, new DateTime(0), false));
         }
         //*****************************************************************************************
 

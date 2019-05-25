@@ -232,8 +232,8 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding NoteText}" Header="Note" Width="600" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author" Width="200" />
-                            <GridViewColumn DisplayMemberBinding="{Binding DateTimePublished}" Header="Time Stamp" Width="125"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author" Width="175" />
+                            <GridViewColumn DisplayMemberBinding="{Binding TimeStamp, StringFormat=g}" Header="Time Stamp" Width="150"/>
                         </GridView>
                     </ListView.View>
                     
@@ -311,6 +311,12 @@
                         Width="200" Height="60"
                         materialDesign:HintAssist.Hint="Scan Code"
                         Margin="2"
+                        x:Name="ScanCodeTextField"
+                      
+                        ManipulationCompleted="ScanCodeTextField_ManipulationCompleted"
+                        TextChanged="ScanCodeTextField_TextChanged"
+                        
+                        
                     />
                 </DockPanel>
 

@@ -6,6 +6,7 @@ namespace BigBlueBox_lib.Gear
 {
     public class Gear
     {
+        public static readonly string DT_FORMAT = "yyyy/MM/dd HH:mm::ss";
 
         //*****************************************************************************************
         // Data Fields
@@ -52,7 +53,7 @@ namespace BigBlueBox_lib.Gear
         /// <param name="Health_Status"></param>
         /// <param name="ObsolDate"></param>
         /// <param name="IsCheckedOut"></param>
-        Gear(string Name, int CatId, int IdvId, int Health_Status, DateTime ObsolDate, bool IsCheckedOut)
+        public Gear(string Name, int CatId, int IdvId, int Health_Status, DateTime ObsolDate, bool IsCheckedOut)
         {
             this.Name = Name;
             this.CatId = CatId;
