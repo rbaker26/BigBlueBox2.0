@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,7 @@ using QRCoder;
 
 using BigBlueBox_lib.Gear;
 using BigBlueBox2._0.data;
-
-
+//using Path = System.IO.Path;
 
 namespace BigBlueBox2._0.pages
 {
@@ -46,15 +46,14 @@ namespace BigBlueBox2._0.pages
             {
                 Notes_Table.Items.Add(i);
             }
-            
-            var svgDocument = Svg.SvgDocument.Open("/../assests/images/ItemQr.svg");
+            string path = @"C:\Users\007ds\Documents\GitHub\BigBlueBox2.0\BigBlueBox2.0\assests\images\";
+            var svgDocument = Svg.SvgDocument.Open(path  + "ItemQr.svg");
             svgDocument.ShapeRendering = SvgShapeRendering.Auto;
 
             Bitmap bmp = svgDocument.Draw(200, 200);                          // Draw Bitmap in any Size you need - for example 12px x 12px
-            bmp.Save("/assests/images/ItemQr.png", ImageFormat.Png); 				// save Bitmap as PNG-File
+            bmp.Save(path + "itemQr.png", ImageFormat.Png); 				// save Bitmap as PNG-File
 
-
-            ItemQRCode.Source = new BitmapImage(new Uri("/assests/images/ItemQr.png"));
+            ItemQRCode.Source = new BitmapImage(new Uri(path + "itemQr.png"));
             PersonQRCode.Source = ItemQRCode.Source;
         }
 
