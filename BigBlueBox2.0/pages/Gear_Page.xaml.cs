@@ -46,15 +46,15 @@ namespace BigBlueBox2._0.pages
             {
                 Notes_Table.Items.Add(i);
             }
-
-            var svgDocument = Svg.SvgDocument.Open("C:/Users/007ds/Documents/GitHub/BigBlueBox2.0/MainDemo.Wpf/Resources/ItemQr.svg");
+            
+            var svgDocument = Svg.SvgDocument.Open("/../assests/images/ItemQr.svg");
             svgDocument.ShapeRendering = SvgShapeRendering.Auto;
 
             Bitmap bmp = svgDocument.Draw(200, 200);                          // Draw Bitmap in any Size you need - for example 12px x 12px
-            bmp.Save("C:/Users/007ds/Documents/GitHub/BigBlueBox2.0/MainDemo.Wpf/Resources/ItemQr.png", ImageFormat.Png); 				// save Bitmap as PNG-File
+            bmp.Save("/assests/images/ItemQr.png", ImageFormat.Png); 				// save Bitmap as PNG-File
 
 
-            ItemQRCode.Source = new BitmapImage(new Uri("C:/Users/007ds/Documents/GitHub/BigBlueBox2.0/MainDemo.Wpf/Resources/ItemQr.png"));
+            ItemQRCode.Source = new BitmapImage(new Uri("/assests/images/ItemQr.png"));
             PersonQRCode.Source = ItemQRCode.Source;
         }
 
