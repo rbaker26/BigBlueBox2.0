@@ -44,21 +44,18 @@ namespace BigBlueBox2._0.pages
 
         private void Inventory_Table_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var item = (sender as ListView).SelectedItem;
-            if (item != null)
+            MessageBoxResult result = MessageBox.Show("You are about to make changes to the inventory. Would you like to continue?","Are you sure?",MessageBoxButton.YesNo,MessageBoxImage.Warning);
+            switch(result)
             {
-
-                // These are the same object (verified by toString method)
-                Console.Out.WriteLine(item.ToString());
-                Item ii = item as Item;
-                Console.Out.WriteLine(ii.ToString());
-
-                ItemTextBox.Clear();
-                ItemTextBox.Text = ii.ItemName;
-
-                ItemBoxName.Text = ii.BoxName;
-
+                case MessageBoxResult.Yes:
+                       Inventory_Editor invedit = new Inventory_Editor();
+                       invedit.Show();
+                    break;
+                case MessageBoxResult.No:
+                       
+                    break;
             }
+            
         }
     }
 

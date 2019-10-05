@@ -36,7 +36,7 @@ namespace BigBlueBox2._0.pages
         public Gear_Page()
         {
             InitializeComponent();
-            // C: \Users\007ds\Documents\GitHub\BigBlueBox2.0\MainDemo.Wpf\Resources\ItemQr.svg
+            // C: \Users\patri\Documents\GitHub\BigBlueBox2.0\MainDemo.Wpf\Resources\ItemQr.svg
 
 
 
@@ -46,7 +46,7 @@ namespace BigBlueBox2._0.pages
             {
                 Notes_Table.Items.Add(i);
             }
-            string path = @"C:\Users\007ds\Documents\GitHub\BigBlueBox2.0\BigBlueBox2.0\assests\images\";
+            string path = @"C:\Users\patri\Documents\GitHub\BigBlueBox2.0\BigBlueBox2.0\assests\images\";
             var svgDocument = Svg.SvgDocument.Open(path  + "ItemQr.svg");
             svgDocument.ShapeRendering = SvgShapeRendering.Auto;
 
