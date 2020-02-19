@@ -14,6 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{StaticResource MaterialDesignFont}" 
         Icon="/assests/images/icon.png"
+        WindowState="Maximized"
         >
     
     <Window.CommandBindings>
