@@ -18,6 +18,7 @@ namespace BigBlueBox_lib.Item
 
             ModifiedBy = "";
         }
+        public int Id { get; set; }
         public String ItemName { get; set; }
         public int Quantity { get; set; }
         public int EffectiveOnHand { get; set; }
@@ -32,7 +33,7 @@ namespace BigBlueBox_lib.Item
 
         public override string ToString()
         {
-            return "Item Name:\t" + ItemName + "\tQuantity:\t" + Quantity + "\tTarget:\t" + EffectiveOnHand + "\tBox Name:\t" + BoxName;
+            return "ID:\t" + Id + "\tItem Name:\t" + ItemName + "\tQuantity:\t" + Quantity + "\tTarget:\t" + EffectiveOnHand + "\tBox Name:\t" + BoxName;
         }
 
 

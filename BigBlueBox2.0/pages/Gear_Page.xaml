@@ -33,11 +33,11 @@
         <!--***********************************************************************************-->
 
 
-
         <!--***********************************************************************************-->
         <!--Gear Info Box                                                                      -->
         <!--***********************************************************************************-->
         <GroupBox Grid.Row="1" Grid.Column="0" Margin="16">
+            <!--#region Gear Info Box-->
             <!--*****************************************************************-->
             <!--Gear Info Box Header                                             -->
             <!--*****************************************************************-->
@@ -82,7 +82,8 @@
                            MinWidth="350px"
                            IsEnabled="False"
                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                           VerticalAlignment="Top">
+                           VerticalAlignment="Top"
+                           x:Name="GearNameText">
 
                 </TextBox>
                 <TextBox   Grid.Row="0" Grid.Column="1" Margin="8"
@@ -90,7 +91,8 @@
                            MinWidth="350px"
                            IsEnabled="False"
                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                           VerticalAlignment="Top">
+                           VerticalAlignment="Top"
+                           x:Name="GearIdvIdText">
 
                 </TextBox>
 
@@ -100,7 +102,8 @@
                          MinWidth="350px"
                          IsEnabled="False"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                         VerticalAlignment="Top">
+                         VerticalAlignment="Top"
+                         x:Name="GearHealthStatusText">
 
                 </TextBox>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="8"
@@ -108,7 +111,8 @@
                          MinWidth="350px"
                          IsEnabled="False"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                         VerticalAlignment="Top">
+                         VerticalAlignment="Top"
+                         x:Name="GearObvDateText">
                 </TextBox>
 
                 <Grid  Grid.Row="3" Grid.Column="0"  >
@@ -165,12 +169,14 @@
                         Margin="4 2 8 8"
                         IsEnabled="False"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        x:Name="GearQrScancodeText"
                     />
 
                 </Grid>
 
             </Grid>
             <!--*****************************************************************-->
+            <!--#endregion-->
         </GroupBox>
         <!--***********************************************************************************-->
 
@@ -183,11 +189,9 @@
         <GroupBox   Grid.Row="2" Grid.Column="0" Margin="16"
                    
                     Style="{DynamicResource MaterialDesignGroupBox}"
-                    materialDesign:ColorZoneAssist.Mode="Accent"
-                    
-                    
+                    materialDesign:ColorZoneAssist.Mode="Accent"         
         >
-
+            <!--#region Notes List Box-->
             <!--*****************************************************************-->
             <!--Notes List Box Header                                            -->
             <!--*****************************************************************-->
@@ -239,15 +243,164 @@
 
 
                 </ListView>
-                <Button Grid.Row="1" Grid.Column="1"
+                
+                
+                
+                
+                <!--<Button Grid.Row="1" Grid.Column="1"
                         Width="100"
                         HorizontalAlignment="Right"
                         Margin="16"
                         Style="{StaticResource MaterialDesignRaisedLightButton}">
                     Add Note
-                </Button>
-            </Grid>
+                </Button>-->
 
+                <Button
+                        Grid.Row="1" Grid.Column="1"
+                        Width="100"
+                        HorizontalAlignment="Right"
+                        Margin="16"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                    <!--**********************-->
+                    <!--#region New Item Dialog-->
+                    <Button.CommandParameter>
+                        <StackPanel Margin="16">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}"
+                                               FontSize="24"
+                                               Margin="8 4 0 8"
+                                               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                                               >
+                                        Add Gear Note
+                                </TextBlock>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                               FontSize="12"
+                                               HorizontalAlignment="Left"
+                                               TextAlignment="Left"
+                                               Margin="8 4 8 16">
+                                        Notes can only be deleted by adminitrators.
+                                </TextBlock>
+
+                                <!--<TextBox x:Name="NewItemTextBox"
+                                         Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                                         Margin="8,8,8,4"
+                                         VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                         MinWidth="400"
+                                         materialDesign:HintAssist.Hint="Item Name"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+
+                                    />-->
+                                <TextBox
+                                        x:Name="NoteTextTextBox"
+                                        Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                                        Margin="8,8,8,4"
+                                        VerticalAlignment="Top"
+                                        Height="100"
+                                        AcceptsReturn="True"
+                                        TextWrapping="Wrap"
+                                        VerticalScrollBarVisibility="Auto"
+                                        materialDesign:HintAssist.Hint="Note Text"
+                                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" 
+                                        KeyUp="NoteAndAuthorKeyStroke"/>
+                                
+                                <TextBox x:Name="NoteAuthorTextBox"
+                                         Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                         Margin="8,4,8,4"
+                                         VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                         MinWidth="400"
+                                         materialDesign:HintAssist.Hint="Note Author"
+                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                         KeyUp="NoteAndAuthorKeyStroke"
+                                    />
+
+                                <!--<ComboBox Grid.Row="4" Grid.Column="0"
+                                              Margin="8,8,8,8"
+                                              materialDesign:HintAssist.Hint="Quantity">
+
+                                </ComboBox>-->
+
+                                <!--<ComboBox Grid.Row="4" Grid.Column="1"
+                                              Margin="8,8,8,8"
+                                              materialDesign:HintAssist.Hint="Target">
+
+                                </ComboBox>-->
+
+                                <!--<CheckBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                                              HorizontalAlignment="Left"
+                                              Margin="8,8,8,32">
+
+                                    Can Expire
+                                </CheckBox>-->
+
+                                <!--<ProgressBar
+                                            Style="{DynamicResource MaterialDesignCircularProgressBar}"
+                                            HorizontalAlignment="Center"
+                                            Margin="16"
+                                            IsIndeterminate="True"
+                                            Value="0" 
+                                    />-->
+
+
+
+                                <Button
+                                          x:Name="CancelAddNoteButton"
+                                          Margin="8,32,8,8"
+                                          Grid.Row="6" Grid.Column="0"
+                                          Style="{StaticResource MaterialDesignFlatButton}"
+                                          IsCancel="True"
+                                          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                          
+                                          HorizontalAlignment="Center"
+                                         Click="Cancel_Add_Note_Button_Click">
+                                    CANCEL
+                                </Button>
+                                <Button
+                                          x:Name="AddNoteButton"
+                                          Margin="8,32,8,8"
+                                          Grid.Row="6" Grid.Column="1" 
+                                          Style="{StaticResource MaterialDesignFlatButton}"
+                                          IsCancel="True"
+                                          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                          HorizontalAlignment="Center"
+                                          Click="Add_Note_Button_Click"
+                                          IsEnabled="False">
+                                    APPLY
+                                </Button>
+                            </Grid>
+
+                        </StackPanel>
+                    </Button.CommandParameter>
+                    <!--#endregion-->
+                    <!--**********************-->
+                    Add Note
+                </Button>
+
+
+
+
+
+            </Grid>
+            <!--#endregion-->
         </GroupBox>
         <!--***********************************************************************************-->
 
@@ -255,12 +408,13 @@
 
 
         <!--***********************************************************************************-->
-        <!--Check In/Out Box                                                                      -->
+        <!--Check In/Out Box                                                                   -->
         <!--***********************************************************************************-->
         <GroupBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Margin="16"
                   Header="Checkout Toolbox"
                   Style="{DynamicResource MaterialDesignCardGroupBox}"
                   >
+            <!--#region Check InOut Box-->
             <GroupBox.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -312,11 +466,7 @@
                         materialDesign:HintAssist.Hint="Scan Code"
                         Margin="2"
                         x:Name="ScanCodeTextField"
-                      
-                        ManipulationCompleted="ScanCodeTextField_ManipulationCompleted"
-                        TextChanged="ScanCodeTextField_TextChanged"
-                        
-                        
+                        PreviewKeyDown="EnterClicked"
                     />
                 </DockPanel>
 
@@ -369,6 +519,7 @@
                          TextWrapping="Wrap"
                          Width="200" Height="60"
                          materialDesign:HintAssist.Hint="Troop"
+                         x:Name="TroopNameTextBox"
                     />
                     <TextBox Grid.Row="2" Grid.Column="1" Margin="8 2 8 2"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -377,6 +528,8 @@
                          TextWrapping="Wrap"
                          Width="200" Height="60"
                          materialDesign:HintAssist.Hint="Patrol"
+                         x:Name="PatrolNameTextBox"
+                             
                     />
                     <Image Grid.Row="2" Grid.RowSpan="3" Grid.Column="2" Margin="8" x:Name="PersonQRCode"
                            RenderSize="200 200"
@@ -388,24 +541,26 @@
                          IsEnabled="False"
                          TextWrapping="Wrap"
                          Width="200" Height="60"
-                         materialDesign:HintAssist.Hint="First Name"
+                         materialDesign:HintAssist.Hint="Name"
+                         x:Name="NameTextBox"
                     />
-                    <TextBox Grid.Row="3" Grid.Column="1" Margin="8 2 8 2"
+                    <!--<TextBox Grid.Row="3" Grid.Column="1" Margin="8 2 8 2"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                          VerticalAlignment="Top"
                          IsEnabled="False"
                          TextWrapping="Wrap"
                          Width="200" Height="60"
                          materialDesign:HintAssist.Hint="Last Name"
-                    />
+                    />-->
 
-                    <TextBox Grid.Row="4" Grid.Column="0" Margin="8 2 8 2"
+                    <TextBox Grid.Row="3" Grid.Column="1" Margin="8 2 8 2"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                          VerticalAlignment="Top"
                          IsEnabled="False"
                          TextWrapping="Wrap"
                          Width="200" Height="60"
                          materialDesign:HintAssist.Hint="PID"
+                         x:Name="PIDTextBox"
                     />
 
                     <Button Grid.Row="5" Grid.Column="0"
@@ -430,6 +585,7 @@
                             IsEnabled="False"
                             
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            x:Name="PIDScancode"
                         />
                     </DockPanel>
 
@@ -483,6 +639,7 @@
 
 
             </Grid>
+            <!--#endregion-->
 
         </GroupBox>
         <!--***********************************************************************************-->

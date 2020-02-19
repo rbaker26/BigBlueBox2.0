@@ -23,6 +23,7 @@ namespace BigBlueBox_lib.Gear
 
         public bool IsCheckedOut { get; set; }
 
+        public string CheckedOutBy { get; set; }
         
 
         //*****************************************************************************************
@@ -40,5 +41,7 @@ namespace BigBlueBox_lib.Gear
         }
         //*****************************************************************************************
 
+
+        public static readonly string[] HealthString = { "error", "Healthy", "Missing Parts", "Needs Maintenance", "Needs Repair", "Needs Replacement", "error" };
     }
 }
