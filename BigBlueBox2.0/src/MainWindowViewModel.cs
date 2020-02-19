@@ -29,21 +29,27 @@ namespace BigBlueBox2._0.src
                         DocumentationLink.DemoPageLink<Home>()
                     }
                 ),
-                new MenuItem("Inventory", new Inventory_Page(),
+                new MenuItem("Inventory Manager", new Inventory_Page(),
                     new []
                     {
                         new DocumentationLink(DocumentationLinkType.Wiki, $"{ConfigurationManager.AppSettings["GitHub"]}/wiki", "WIKI"),
                         DocumentationLink.DemoPageLink<Home>()
                     }
                 ),
-                new MenuItem("Gear", new Gear_Page(),
+                new MenuItem("Gear Checkout", new Gear_Page(),
                     new []
                     {
                         new DocumentationLink(DocumentationLinkType.Wiki, $"{ConfigurationManager.AppSettings["GitHub"]}/wiki", "WIKI"),
                         DocumentationLink.DemoPageLink<Home>()
                     }
                 ),
-                
+                new MenuItem("Gear Manager", new Gear_Page(),
+                    new []
+                    {
+                        new DocumentationLink(DocumentationLinkType.Wiki, $"{ConfigurationManager.AppSettings["GitHub"]}/wiki", "WIKI"),
+                        DocumentationLink.DemoPageLink<Home>()
+                    }
+                ),
                 #region temp
                 //new MenuItem("Inventory Splash Screen", new InventorySplashScreen(),
                 //    new []

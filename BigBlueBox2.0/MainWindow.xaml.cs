@@ -43,6 +43,17 @@ namespace BigBlueBox2._0
             Snackbar = this.MainSnackbar;
         }
 
+        public void PublishToSnackBar(string msg)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                Thread.Sleep(150);
+            }).ContinueWith(t =>
+            {
+                MainSnackbar.MessageQueue.Enqueue(msg);
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
         private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             //until we had a StaysOpen glag to Drawer, this will help with scroll bars

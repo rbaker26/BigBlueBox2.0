@@ -14,22 +14,15 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="220" />
-
-
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1400" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!--private String itemName;
-        private int quantity;
-        private int effectiveOnHand;
-        private String boxName;
-        private bool canExpire;-->
-
         <!--*************************************************************************-->
         <!--Table Grid Area-->
+        <!--#region Table Grid Area-->
         <!--*************************************************************************-->
 
         <!--Acting as buff rn-->
@@ -187,7 +180,7 @@
                         <GridViewColumn DisplayMemberBinding="{Binding ItemName}" Header="Item Description" Width="400"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" />
                         <GridViewColumn DisplayMemberBinding="{Binding EffectiveOnHand}" Header="Target Quantity" />
-                        <GridViewColumn DisplayMemberBinding="{Binding BoxName}" Header="Box Description" Width="400"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding BoxName}" Header="Location Description" Width="400"/>
                         <GridViewColumn DisplayMemberBinding="{Binding CanExpire}" Header="Can Expire" />
                     </GridView>
                 </ListView.View>
@@ -197,37 +190,15 @@
 
 
 
-
-
+        <!--#endregion-->
         <!--*************************************************************************-->
 
 
 
         <!--*************************************************************************-->
         <!--Edit Page Grid Area-->
+        <!--#region Item Info Box-->
         <!--*************************************************************************-->
-
-
-        <!--<Border BorderBrush="#FF179AC8" BorderThickness="2" />-->
-
-
-
-        <!--<TextBox x:Name="ItemTextBox"
-                     Grid.Row="0" Grid.Column="0"
-                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                     MinWidth="400"
-                     materialDesign:HintAssist.Hint="Search"
-             
-                     >
-                <TextBox.Text>
-                    <Binding Path="Item" UpdateSourceTrigger="PropertyChanged">
-                        <Binding.ValidationRules>
-                            <domain1:NotEmptyValidationRule ValidatesOnTargetUpdated="True" 
-                                                            xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain" />
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>-->
 
 
         <GroupBox
@@ -252,8 +223,10 @@
                 </DataTemplate>
             </GroupBox.HeaderTemplate>
 
+
             <Grid   Margin="16 8 16 8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
                >
+                <!--#region Grid Deffs-->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -270,16 +243,37 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
+                <!--#endregion-->
 
-                <TextBox x:Name="ItemTextBox"
-                     Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                     Margin="0,8,0,4"
-                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                     MinWidth="400"
-                     materialDesign:HintAssist.Hint="Item Name"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
 
-                />
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                        x:Name="ItemId"
+                        Grid.Column="0"
+                        Margin="0,8,8,4"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                        MinWidth="75"
+                        materialDesign:HintAssist.Hint="Item ID"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        IsReadOnly="True"
+                    />
+                    <TextBox x:Name="ItemTextBox"
+                         Grid.Column="1"
+                         Margin="8,8,0,4"
+                         VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                         MinWidth="322"
+                         materialDesign:HintAssist.Hint="Item Name"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         PreviewTextInput="TextValidationTextBox"
+                         DataObject.Pasting="TextValidationPastingTextBox"
+                    />
+                    
+                </Grid>
+
                 <TextBox x:Name="ItemBoxName"
                      Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                      Margin="0,4,0,4"
@@ -287,43 +281,34 @@
                      MinWidth="400"
                      materialDesign:HintAssist.Hint="Box Name"
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     PreviewTextInput="TextValidationTextBox"
+                     DataObject.Pasting="TextValidationPastingTextBox"
                 />
 
-                <ComboBox
+                <TextBox x:Name="ItemQuantity"
                           Grid.Row="3" Grid.Column="0"
                           materialDesign:HintAssist.Hint="quantity"
                           Margin="0 4 8 4"
                           VerticalAlignment="Bottom"
-                          IsEditable="True"
-                          ItemsSource="{Binding LongListToTestComboVirtualization}">
-                    <!--<ComboBox.Text>
-                        -->
-                    <!--<Binding
-                          Path="SelectedTextTwo"
-                          Mode="TwoWay"
-                          UpdateSourceTrigger="PropertyChanged">        
-                            <Binding.ValidationRules>
-                                <domain1:NotEmptyValidationRule
-                                    ValidatesOnTargetUpdated="True" xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain" />
-                            </Binding.ValidationRules>
-                        </Binding>-->
-                    <!--
-                    </ComboBox.Text>-->
-                    <ComboBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel />
-                        </ItemsPanelTemplate>
-                    </ComboBox.ItemsPanel>
-                </ComboBox>
+                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                          PreviewTextInput="NumberValidationTextBox"
+                          DataObject.Pasting="NumberValidationPastingTextBox"
+                          >
+                </TextBox>
 
 
-                <ComboBox Grid.Row="3" Grid.Column="1"
-                          Margin="8 4 0 4"
-                          materialDesign:HintAssist.Hint="target">
+                <TextBox x:Name="ItemTargetQuantity"
+                         Grid.Row="3" Grid.Column="1"
+                         Margin="8 4 0 4"
+                         materialDesign:HintAssist.Hint="target"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         PreviewTextInput="NumberValidationTextBox"
+                         DataObject.Pasting="NumberValidationPastingTextBox"
+                         >
+                </TextBox>
 
-                </ComboBox>
-
-                <CheckBox Grid.Row="4" Grid.Column="0"
+                <CheckBox x:Name="ItemCanExpire"
+                          Grid.Row="4" Grid.Column="0"
                           Margin="0 16 0 16"
                           Style="{StaticResource MaterialDesignCheckBox}"
                           >
@@ -331,28 +316,17 @@
                 </CheckBox>
 
                 <Button
+                    x:Name="ItemApplyButton"
                     Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                     Margin="0 16 0 16"
                     HorizontalAlignment="Center"
                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                     Width="100"
-                    ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                    ToolTip="Apply Changes"
+                    Click="ItemApplyButton_Click"
+                    >
                     Apply
                 </Button>
-
-                <!--<Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
-                    Margin="0 64 0 0"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    Width="100"
-                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
-                    <StackPanel>
-                        
-                        <materialDesign:PackIcon Kind="Add" />
-
-                        <TextBox>Add Item</TextBox>
-                    </StackPanel>
-                    
-                </Button>-->
 
 
                 <Grid  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
@@ -369,18 +343,14 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <!--<materialDesign:Badged
-                          Margin="16 0 16 0"
-                          Grid.Row="0" Grid.Column="0"
-                          Badge="{materialDesign:PackIcon Add}"
-                          BadgeColorZoneMode="Accent"
-                          HorizontalAlignment="Center">-->
                     <Button
                             Margin="16 0 16 0"
                             Grid.Row="0" Grid.Column="0"
                             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                            
                             Width="128">
+                        <!--**********************-->
+                        <!--#region New Item Dialog-->
                         <Button.CommandParameter>
                             <StackPanel Margin="16">
 
@@ -415,7 +385,7 @@
                                                HorizontalAlignment="Center"
                                                TextAlignment="Left"
                                                Margin="0 4 8 16">
-                                        Before adding and item: <LineBreak/>
+                                        Before adding an item: <LineBreak/>
                                         Make sure that you are not adding an item that is already in the database.
                                     </TextBlock>
 
@@ -490,9 +460,11 @@
 
                             </StackPanel>
                         </Button.CommandParameter>
+                        <!--#endregion-->
+                        <!--**********************-->
                         Add Item
                     </Button>
-                    <!--</materialDesign:Badged>-->
+
                     <materialDesign:Badged
                           Margin="16 0 16 0"
                           Grid.Row="0" Grid.Column="1"
@@ -509,15 +481,21 @@
             </Grid>
 
         </GroupBox>
+        <!--#endregion-->
+        <!--*************************************************************************-->
 
 
+
+        <!--*************************************************************************-->
+        <!--Info Box-->
+        <!--*************************************************************************-->
         <GroupBox
             Grid.Row="2" Grid.Column="1"
           
           Style="{DynamicResource MaterialDesignGroupBox}"
           Margin="16"
           materialDesign:ColorZoneAssist.Mode="Accent">
-
+            <!--#region Info Box Area-->
 
             <GroupBox.HeaderTemplate>
                 <DataTemplate>
@@ -536,11 +514,6 @@
                 </DataTemplate>
             </GroupBox.HeaderTemplate>
 
-
-            <!--<GroupBox.Header>
-                <Label>Item Toolbox Information</Label>
-                <materialDesign:PackIcon Kind="InformationVariant" />
-            </GroupBox.Header>-->
             <TextBlock
                  Style="{StaticResource MaterialDesignSubheadingTextBlock}"
                 VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -551,9 +524,8 @@
                  <LineBreak/>
                 Double-click a row to edit the item.
             </TextBlock>
+            <!--#endregion-->
         </GroupBox>
-
-
         <!--*************************************************************************-->
 
     </Grid>
