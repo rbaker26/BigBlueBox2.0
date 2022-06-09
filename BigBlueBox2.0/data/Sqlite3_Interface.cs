@@ -54,7 +54,7 @@ namespace BigBlueBox2._0.data
         private Sqlite3_Interface()
         {
             // SQLiteConnection.CreateFile("MyDatabase.sqlite");
-            this.m_dbConnection = new SQLiteConnection("Data Source=C:/Users/007ds/Documents/GitHub/BigBlueBox2.0/BigBlueBox2.0/assests/data/BigBlueBox.db;Version=3;Read Only=False");
+            this.m_dbConnection = new SQLiteConnection("Data Source=C:/Users/patri/Documents/GitHub/BigBlueBox2.0/BigBlueBox2.0/assests/data/BigBlueBox.db;Version=3;Read Only=False");
 
             m_dbConnection.Open();
         }
