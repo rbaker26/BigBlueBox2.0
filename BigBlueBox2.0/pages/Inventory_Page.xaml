@@ -16,8 +16,8 @@
             <RowDefinition Height="220" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1400" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1100" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!--*************************************************************************-->
@@ -26,7 +26,7 @@
         <!--*************************************************************************-->
 
         <!--Acting as buff rn-->
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="16 0 16 0">
+        <Grid Grid.Row="0" Grid.Column="0" Margin="16,0,18,80" Grid.RowSpan="2">
             <!--<Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
@@ -78,7 +78,7 @@
               Grid.Row="1" Grid.Column="0" 
               Grid.RowSpan="2"
               
-              Margin="16">
+              Margin="16,16,18,16">
 
 
             <GroupBox.HeaderTemplate>
@@ -174,7 +174,7 @@
 
             <ListView  ItemsSource="{Binding Item}" x:Name="Inventory_Table"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
-                   MouseDoubleClick="Inventory_Table_MouseDoubleClick">
+                   MouseDoubleClick="Inventory_Table_MouseDoubleClick" Margin="0,0,0,-0.2" Width="1000">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding ItemName}" Header="Item Description" Width="400"/>
@@ -205,7 +205,7 @@
                     Grid.Row="1" Grid.Column="1"
                     Header="Item Edit Toolbox"
                     Style="{DynamicResource MaterialDesignCardGroupBox}"
-                    Margin="16">
+                    Margin="14,16,-14,16">
             <GroupBox.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -271,7 +271,7 @@
                          PreviewTextInput="TextValidationTextBox"
                          DataObject.Pasting="TextValidationPastingTextBox"
                     />
-                    
+
                 </Grid>
 
                 <TextBox x:Name="ItemBoxName"
@@ -493,7 +493,7 @@
             Grid.Row="2" Grid.Column="1"
           
           Style="{DynamicResource MaterialDesignGroupBox}"
-          Margin="16"
+          Margin="14,16,-14,16"
           materialDesign:ColorZoneAssist.Mode="Accent">
             <!--#region Info Box Area-->
 

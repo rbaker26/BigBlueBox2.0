@@ -166,36 +166,36 @@ namespace BigBlueBox2._0.pages
 
 
         //// This function is called when the newline or enter key is press.
-        //private void ScanCodeTextField_TextChanged(object sender, TextChangedEventArgs e)
-        //{
+        private void ScanCodeTextField_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
-        //    //try
-        //    //{
-        //    //    string item = (sender as TextBox).Text;
-        //    //    Console.Out.WriteLine(item.Length);
-        //    //    if (item != null && item.Length == 15)
-        //    //    {
-        //    //        if (item.Substring(0, 3).ToLower() == "itm")
-        //    //        {
-        //    //            int catId = Int32.Parse(item.Substring(4, 4));
-        //    //            int idvId = Int32.Parse(item.Substring(9, 6));
-        //    //            List<Gear_Note> notes = Sqlite3_Interface.Instance.GetGearNotes(catId, catId);
+            try
+            {
+            string item = (sender as TextBox).Text;
+            Console.Out.WriteLine(item.Length);
+            if (item != null && item.Length == 15)
+               {
+                if (item.Substring(0, 3).ToLower() == "itm")
+               {
+                   int catId = Int32.Parse(item.Substring(4, 4));
+                   int idvId = Int32.Parse(item.Substring(9, 6));
+                   List<Gear_Note> notes = Sqlite3_Interface.Instance.GetGearNotes(catId, catId);
 
-        //    //            Console.Out.WriteLine("##########################################################");
-        //    //            Console.Out.WriteLine(item + "\t" + catId + "\t" + idvId);
-        //    //            Console.Out.WriteLine("##########################################################");
+                   Console.Out.WriteLine("##########################################################");
+                   Console.Out.WriteLine(item + "\t" + catId + "\t" + idvId);
+                   Console.Out.WriteLine("##########################################################");
 
-        //    //            ClearAndAddNotesToTable(notes);
+                   ClearAndAddNotesToTable(notes);
 
-        //    //        }
-        //    //    }
-        //    //}
-        //    //catch(Exception exp)
-        //    //{
-        //    //    Console.Error.WriteLine(exp.ToString());
-        //    //}
+                }
+            }
+        }
+        catch(Exception exp)
+        {
+          Console.Error.WriteLine(exp.ToString());
+            }
 
-        //}
+        }
 
 
         //*****************************************************************************************
